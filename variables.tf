@@ -30,7 +30,7 @@ variable "spn_deploy_name" {
 
 variable "environments" {
   description = "Mapa de ambientes: nombre del Databricks Workspace y del SPN run_as por ambiente"
-  type = map(object({
+  type        = map(object({
     workspace_name = string
     spn_run_name   = string
   }))
