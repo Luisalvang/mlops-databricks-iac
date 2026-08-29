@@ -9,7 +9,7 @@
 terraform {
   backend "azurerm" {
     resource_group_name  = "rg-tfstate"
-    storage_account_name = "sttfstatemlops"
+    storage_account_name = "sttfstatemlopsla"
     container_name       = "tfstate"
     key                  = "mlops-databricks-iac.tfstate"
   }
