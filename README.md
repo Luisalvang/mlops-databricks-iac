@@ -30,6 +30,10 @@ Terraform no puede crear las credenciales con las que él mismo se autentica, y
 1. **Crear un SPN bootstrap** (Azure Portal o `az cli`) con:
    - Rol **Contributor** sobre la subscription (o al menos sobre el scope donde se
      creará `rg-devops-zmod-001`)
+   - Rol **User Access Administrator** sobre el mismo scope — Contributor excluye
+     explícitamente `Microsoft.Authorization/roleAssignments/write`, necesario para
+     que este código pueda crear los `azurerm_role_assignment` (SPN deploy → Contributor
+     sobre el RG, Access Connector → Storage Blob/Queue Data Contributor)
    - Rol **Application Administrator** en Azure AD (necesario para crear los 4 SPN
      vía el provider `azuread`: `spn-deploy-devops-001` + los 3 `spn-zmod-adb-*-001`)
 
